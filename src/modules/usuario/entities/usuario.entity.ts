@@ -1,14 +1,13 @@
-import { IsString } from "class-validator";
 import { Pedido } from "src/modules/pedido/entities/pedido.entity";
-import { Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Usuario {
     @PrimaryGeneratedColumn()
     id: number;
-    @IsString()
+    @Column()
     nombre: string;
-    @IsString()
+    @Column()
     email: string;
     @OneToMany(() => Pedido, pedido => pedido.usuario)
     pedidos: Pedido[];

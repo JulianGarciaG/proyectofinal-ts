@@ -1,26 +1,61 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Producto } from './entities/producto.entity';
 import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
+import { Categoria } from '../categoria/entities/categoria.entity';
 
 @Injectable()
 export class ProductoService {
-  create(createProductoDto: CreateProductoDto) {
-    return 'This action adds a new producto';
+  constructor(
+    @InjectRepository(Producto)
+    private readonly productoRepo: Repository<Producto>,
+    @InjectRepository(Categoria)
+    private readonly categoriaRepo: Repository<Categoria>,
+  ) {}
+
+  async create(dto: CreateProductoDto) {
+    const categoria = await this.categoriaRepo.findOne({ where: { id: dto.categoriaId } });
+    if (!categoria) throw new NotFoundException('Categoría no encontrada');
+
+    const producto = this.productoRepo.create({
+      nombre: dto.nombre,
+      precio: dto.precio,
+      categoria,
+    });
+
+    return this.productoRepo.save(producto);
   }
 
   findAll() {
-    return `This action returns all producto`;
+    return this.productoRepo.find({ relations: ['categoria', 'pedidos'] });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} producto`;
+  async findOne(id: number) {
+    const producto = await this.productoRepo.findOne({
+      where: { id },
+      relations: ['categoria', 'pedidos'],
+    });
+    if (!producto) throw new NotFoundException('Producto no encontrado');
+    return producto;
   }
 
-  update(id: number, updateProductoDto: UpdateProductoDto) {
-    return `This action updates a #${id} producto`;
+  async update(id: number, dto: UpdateProductoDto) {
+    const producto = await this.findOne(id);
+
+    if (dto.categoriaId) {
+      const categoria = await this.categoriaRepo.findOne({ where: { id: dto.categoriaId } });
+      if (!categoria) throw new NotFoundException('Categoría no encontrada');
+      producto.categoria = categoria;
+    }
+
+    Object.assign(producto, dto);
+    return this.productoRepo.save(producto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} producto`;
+  async remove(id: number) {
+    const producto = await this.findOne(id);
+    return this.productoRepo.remove(producto);
   }
 }
