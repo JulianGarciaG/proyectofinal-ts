@@ -1,6 +1,10 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { UsuarioModule } from './modules/usuario/usuario.module';
+import { ProductoModule } from './modules/producto/producto.module';
+import { PedidoModule } from './modules/pedido/pedido.module';
+import { CategoriaModule } from './modules/categoria/categoria.module';
 
 @Module({
   imports: [
@@ -21,6 +25,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         synchronize: true,
       }),
     }),
+    UsuarioModule,
+    ProductoModule,
+    PedidoModule,
+    CategoriaModule,
   ],
 })
 export class AppModule {}
