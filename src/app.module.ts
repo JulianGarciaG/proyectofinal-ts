@@ -1,6 +1,6 @@
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { ProductoModule } from './modules/producto/producto.module';
 import { PedidoModule } from './modules/pedido/pedido.module';
@@ -8,22 +8,16 @@ import { CategoriaModule } from './modules/categoria/categoria.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env',
-    }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (Config: ConfigService) => ({
-        type: 'mysql',
-        host: Config.get('DB_HOST'),
-        port: Config.get('DB_PORT'),
-        username: Config.get('DB_USERNAME'),
-        database: Config.get('DB_NAME'),
-        entities: [__dirname + '/**/*/*.entity{.ts,.js}'],
-        synchronize: true,
-      }),
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT || '3306', 10),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      autoLoadEntities: true,
+      synchronize: true, // solo en desarrollo
     }),
     UsuarioModule,
     ProductoModule,

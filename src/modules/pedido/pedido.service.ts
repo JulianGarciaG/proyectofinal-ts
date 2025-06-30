@@ -19,7 +19,9 @@ export class PedidoService {
   ) {}
 
   async create(dto: CreatePedidoDto) {
-    const usuario = await this.usuarioRepo.findOne({ where: { id: dto.usuarioId } });
+    const usuario = await this.usuarioRepo.findOne({
+      where: { id: dto.usuarioId },
+    });
     if (!usuario) throw new NotFoundException('Usuario no encontrado');
 
     const productos = await this.productoRepo.findByIds(dto.productoIds);
@@ -52,7 +54,9 @@ export class PedidoService {
     const pedido = await this.findOne(id);
 
     if (dto.usuarioId) {
-      const usuario = await this.usuarioRepo.findOne({ where: { id: dto.usuarioId } });
+      const usuario = await this.usuarioRepo.findOne({
+        where: { id: dto.usuarioId },
+      });
       if (!usuario) throw new NotFoundException('Usuario no encontrado');
       pedido.usuario = usuario;
     }
@@ -60,7 +64,9 @@ export class PedidoService {
     if (dto.productoIds) {
       const productos = await this.productoRepo.findByIds(dto.productoIds);
       if (productos.length !== dto.productoIds.length) {
-        throw new NotFoundException('Uno o más productos no fueron encontrados');
+        throw new NotFoundException(
+          'Uno o más productos no fueron encontrados',
+        );
       }
       pedido.productos = productos;
     }

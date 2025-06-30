@@ -1,17 +1,14 @@
-
-import { Producto } from "src/modules/producto/entities/producto.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Producto } from 'src/modules/producto/entities/producto.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Categoria {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    nombre: string;
+  @Column()
+  nombre: string;
 
-    @OneToMany(() => Producto, producto => producto.categoria )
-    productos: Producto[];
-
-
+  @OneToMany(() => Producto, (producto) => producto.categoria)
+  productos: Producto[];
 }
