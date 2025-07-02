@@ -1,0 +1,553 @@
+type: collection.insomnia.rest/5.0
+name: Coleccion:Proyecto Final Julian Andres Garcias Galeano
+meta:
+  id: wrk_e961b6ae48514b6fa8c5dfff1c8f787e
+  created: 1749239681003
+  modified: 1751426814638
+  description: ""
+collection:
+  - name: ProyectoFinal_JAGG
+    meta:
+      id: fld_39895441e68c4eaf84129240dc81da6a
+      created: 1751253984265
+      modified: 1751426696720
+      sortKey: -1751253984265
+      description: ""
+    children:
+      - name: Categorias
+        meta:
+          id: fld_ea48b3d6dbbf4f8abc6d50116449b22a
+          created: 1751258932702
+          modified: 1751258952802
+          sortKey: -1751258932902
+          description: ""
+        children:
+          - url: http://[::1]:3000/categorias
+            name: Taer Categorias
+            meta:
+              id: req_a1f9cc8f9a244166b505157bb7970da2
+              created: 1751258957368
+              modified: 1751259027381
+              isPrivate: false
+              description: ""
+              sortKey: -1751258957368
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/categorias
+            name: Crear Categorias
+            meta:
+              id: req_4ae9afd69a6d48f396aa5b81165d1114
+              created: 1751258975064
+              modified: 1751259008731
+              isPrivate: false
+              description: ""
+              sortKey: -1751258975064
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "nombre": "Ropa"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/categorias/1
+            name: Taer categorias por id
+            meta:
+              id: req_48bb46f3a639438f8b00acd681d20041
+              created: 1751259036781
+              modified: 1751259076073
+              isPrivate: false
+              description: ""
+              sortKey: -1751259036781
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/categorias/1
+            name: Actualizar categoria
+            meta:
+              id: req_dae83523e26248bb8e1d084e729f5bcd
+              created: 1751259093555
+              modified: 1751259114034
+              isPrivate: false
+              description: ""
+              sortKey: -1751258966216
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "nombre": "Aseo"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/categorias/1
+            name: Eliminar Categoria
+            meta:
+              id: req_b7cd80b65516436c84e606b0837d431c
+              created: 1751259129045
+              modified: 1751259150136
+              isPrivate: false
+              description: ""
+              sortKey: -1751259129045
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Usuarios
+        meta:
+          id: fld_4c6cf62c94b44c09b45fabf6209186d7
+          created: 1751259173379
+          modified: 1751259173379
+          sortKey: -1751256458583.5
+          description: ""
+        children:
+          - url: http://[::1]:3000/usuarios
+            name: Taer Usuario
+            meta:
+              id: req_2f1bbb1e3b0b44f7b218cf2f41844923
+              created: 1751259173381
+              modified: 1751259397403
+              isPrivate: false
+              description: ""
+              sortKey: -1751258957368
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/usuarios
+            name: Crear Usuario
+            meta:
+              id: req_175fc9bf2a2947659c5b29beca145eee
+              created: 1751259173382
+              modified: 1751259381130
+              isPrivate: false
+              description: ""
+              sortKey: -1751258975064
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "nombre": "rodrigo",
+                  "email": "rodro@example.com"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/usuarios/1
+            name: Taer Usuario por id
+            meta:
+              id: req_9227dd1dae934459b10c05046665c82a
+              created: 1751259173384
+              modified: 1751259372782
+              isPrivate: false
+              description: ""
+              sortKey: -1751259036781
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/usuarios/1
+            name: Actualizar Usuario
+            meta:
+              id: req_c07aa15ac13c4398b9313d9b2d1f7ae6
+              created: 1751259173385
+              modified: 1751259389896
+              isPrivate: false
+              description: ""
+              sortKey: -1751258966216
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "nombre": "Julian",
+                  "email": "roro@example.com"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/usuarios/1
+            name: Eliminar Usuarios
+            meta:
+              id: req_0035dbee14d249c7a924ffc265b5ea6f
+              created: 1751259173387
+              modified: 1751259361737
+              isPrivate: false
+              description: ""
+              sortKey: -1751259129045
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Productos
+        meta:
+          id: fld_ee0230508786482fb56b419a64ddf6a4
+          created: 1751259423781
+          modified: 1751259423781
+          sortKey: -1751255221424.25
+          description: ""
+        children:
+          - url: http://[::1]:3000/productos
+            name: Taer Producto
+            meta:
+              id: req_d4a520a1afa74e019c42117961272a41
+              created: 1751259423783
+              modified: 1751259906490
+              isPrivate: false
+              description: ""
+              sortKey: -1751258957368
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/productos
+            name: Crear Producto
+            meta:
+              id: req_d9f991f6f9a24616b3732b0d6e8c29a8
+              created: 1751259423785
+              modified: 1751260111279
+              isPrivate: false
+              description: ""
+              sortKey: -1751258975064
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "nombre": "pantalones",
+                  "precio": 1500,
+                  "categoriaId": 2
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/productos/1
+            name: Taer productos por id
+            meta:
+              id: req_f44889ffab954ca397c80f094b7e0009
+              created: 1751259423787
+              modified: 1751259848725
+              isPrivate: false
+              description: ""
+              sortKey: -1751259036781
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/productos/1
+            name: Actualizar Producto
+            meta:
+              id: req_d04ab951c835421f8b301b91831268ec
+              created: 1751259423788
+              modified: 1751259957829
+              isPrivate: false
+              description: ""
+              sortKey: -1751258966216
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "nombre": "Camisa",
+                  "precio": 1500,
+                  "categoriaId": 2
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/productos/1
+            name: Eliminar Productos
+            meta:
+              id: req_f537c1f203f54e04a3102daa9ee4a4c0
+              created: 1751259423790
+              modified: 1751259826751
+              isPrivate: false
+              description: ""
+              sortKey: -1751259129045
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Pedidos
+        meta:
+          id: fld_007b675670a64f69b088858d81ed0ed3
+          created: 1751259991600
+          modified: 1751259991600
+          sortKey: -1751254602844.625
+          description: ""
+        children:
+          - url: http://[::1]:3000/pedidos
+            name: Taer Pedidos
+            meta:
+              id: req_f5fe1f558ad6467f838ce9739d60b376
+              created: 1751259991601
+              modified: 1751260064679
+              isPrivate: false
+              description: ""
+              sortKey: -1751258957368
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/pedidos
+            name: Crear Pedidos
+            meta:
+              id: req_7a2e3f103d3d493888a3759ae165e162
+              created: 1751259991603
+              modified: 1751260150126
+              isPrivate: false
+              description: ""
+              sortKey: -1751258975064
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "usuarioId": 2,
+                  "productoIds": [1, 2]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/pedidos/1
+            name: " Taer Pedidos por id"
+            meta:
+              id: req_fe7162b8903d48f68d9ca45532ab5f5e
+              created: 1751259991604
+              modified: 1751260031585
+              isPrivate: false
+              description: ""
+              sortKey: -1751259036781
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/pedidos/1
+            name: Actualizar Pedidos
+            meta:
+              id: req_3d86ec4707bd48389d3eb282906abf1d
+              created: 1751259991606
+              modified: 1751260075457
+              isPrivate: false
+              description: ""
+              sortKey: -1751258966216
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "usuarioId": 1,
+                  "productoIds": [1, 2]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://[::1]:3000/pedidos/1
+            name: Eliminar Pedidos
+            meta:
+              id: req_a44826916b0d428e8e842713fa8ca177
+              created: 1751259991608
+              modified: 1751260006331
+              isPrivate: false
+              description: ""
+              sortKey: -1751259129045
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_7e009f53978d8504dd1f67702fe0cdf494b5809c
+    created: 1749239681023
+    modified: 1749239681023
+environments:
+  name: Base Environment
+  meta:
+    id: env_7e009f53978d8504dd1f67702fe0cdf494b5809c
+    created: 1749239681020
+    modified: 1749239681020
+    isPrivate: false
